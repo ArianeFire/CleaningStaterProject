@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>SCM_SocleMetierEJB</artifactId>
+	<name>SCM_SocleMetierEJB</name>
+	<packaging>ejb</packaging>
+	
+  <parent>
+		<groupId>com.sqli.sante.ideomed.soclemetier</groupId>
+		<artifactId>SCM_SocleMetierParent</artifactId>
+		<version>02.151-SNAPSHOT</version>      
+    <relativePath>../SCM_SocleMetierParent</relativePath>
+	</parent>
+    
+  <scm>
+    <connection>${svn.base.url}/socle_SCM_SocleMetier/trunk/SCM_SocleMetier/SCM_SocleMetierEJB</connection>
+  </scm>
+  
+  
+	<dependencies>
+		<dependency>
+			<groupId>com.sqli.sante.ideomed.soclemetier</groupId>
+			<artifactId>SCM_SocleMetierPrivateClient</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

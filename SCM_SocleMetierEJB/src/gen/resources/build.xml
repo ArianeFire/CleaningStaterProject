@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project default="generate" basedir="." name="ideoMedSocleEJB">
+
+	<property environment="env" />
+
+	<!--Charge les propriétés -->
+	<loadproperties srcfile="${basedir}/build/${prop.file}">
+	</loadproperties>
+
+	<!-- Verifie le nom du fichier properties à utiliser -->
+	<echo message="Check prop.file property" />
+	<fail unless="prop.file" />
+
+	<property environment="env" />
+
+	<!-- ================================= 
+          target: generate              Generation de code avec IdeoForms (necessite la propriété do.generate)
+         ================================= -->
+	<target name="generate" description="--> Genere les fichiers sources" if="do.generate">
+		<echo message="${gen.libs.path}" />
+		<java classname="com.sqli.sante.genform.core.generators.BatchGenerator">
+			<arg line="-c ${basedir}/genform-config" />
+			<arg line="-g ${do.generate}" />
+			<classpath path="${gen.libs.path}" />
+			<sysproperty key="genform.config.dir" value="${genform.core.path}/resources/config" />
+		</java>
+	</target>
+
+</project>
